@@ -13,5 +13,10 @@
 #
 
 class Product < ApplicationRecord
+    attr_accessor :store, :category
+
     has_many :sales_order
+
+    
+    
 end

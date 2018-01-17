@@ -1,9 +1,10 @@
-class ProductsController < ApplicationController
+class Admin::ProductsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_product, only: [:edit, :update, :destroy]
 
   def index 
     @products = Product.all
+    render json: @products
   end
 
   def new
@@ -23,7 +24,7 @@ class ProductsController < ApplicationController
 
   end
 
-  def create
+  def update
     if @product.update(product_params)
       redirect_to products_path
     else
