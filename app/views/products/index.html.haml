@@ -1,0 +1,28 @@
+%br/
+= link_to('Nuevo Producto', new_product_path)
+%br/
+%br/
+- if @products.empty?
+  %h4 No Existen Productos en Stock!!!
+- else
+  %table.table.table-striped
+    %thead
+      %tr.sticky
+        %th Nombre
+        %th Imagen
+        %th Descripcion
+        %th Precio
+        %th Stock
+        %th Editar
+        %th Eliminar
+    %tbody
+      - @products.each do |product|
+        %tr
+          %td= product.name
+          %td 
+            %img(src="#{product.image}")
+          %td.font-size= product.description
+          %td= number_to_currency(product.price)
+          %td= product.quantity
+          %td= link_to 'Editar', edit_product_path(product)
+          %td= link_to 'Eliminar', product, method: :delete, data: { confirm: "Are you sure?" }
