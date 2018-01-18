@@ -1,17 +1,17 @@
-= form_with(model: [@admin, @store], local: true) do |form|
+= form_for([:admin,@store], local: true) do |form|
     .field
-        = form.label :Nombre
-        = form.text_field :name
+        = form.label :Nombre 
+        = form.text_field :name, class:"form-control"
     .field
         = form.label :Categoria
-        = form.text_field :category
+        = form.text_field :category, class:"form-control"
     .field
-        = form.label :Link_de_Coneccion
-        = form.text_area :connecting_link
+        = form.label :Link
+        = form.text_field :connecting_link, class:"form-control"
     .field
-        = form.label :Link_Listar_Productos
-        = form.text_field :list_products
+        = form.label :Listar
+        = form.text_field :list_products, class:"form-control"
     .field
-        = form.label :Link_Comprar_Productos
-        = form.text_area :buy_product
-    = form.submit
+        = form.label :Comprar
+        = form.text_field :buy_product, class:"form-control"
+    = form.submit class: "btn be-red white"

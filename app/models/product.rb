@@ -24,7 +24,7 @@ class Product < ApplicationRecord
 
   def self.get_info   ### metodo para parsear 
     items = []
-    inf = JSON.parse RestClient.get("http://localhost:3000/api/v1/products") ### cambiar liks
+    inf = JSON.parse RestClient.get("http://192.168.1.8:3000/api/v1/products") ### cambiar liks
     inf.each { |item|
       items << item
     }

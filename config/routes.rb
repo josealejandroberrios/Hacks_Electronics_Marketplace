@@ -11,9 +11,12 @@ Rails.application.routes.draw do
     resources :products, except: [:show]
   end
 
-  resources :products, only: [:index, :show]
-
   namespace :admin do
     resources :stores, except: [:show]
   end
+
+  resources :products, only: [:index, :show]
+
+  root to: "products#index"
+  
 end

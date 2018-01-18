@@ -1,6 +1,7 @@
 class Admin::ProductsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_product, only: [:edit, :update, :destroy]
+  before_action :authenticate_admin!
 
   def index 
     @products = Product.all

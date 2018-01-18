@@ -1,6 +1,7 @@
 class Admin::StoresController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_store, only: [:edit, :update, :destroy]
+  before_action :authenticate_admin!
 
   def index
     @stores = Store.all
@@ -30,7 +31,7 @@ class Admin::StoresController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @store.destroy
     redirect_to admin_stores_path
   end
@@ -41,6 +42,6 @@ class Admin::StoresController < ApplicationController
     end
 
     def store_params
-      params.require(:store).permit(:name, :category, :connecting, :list_product, :buy_product)
+      params.require(:store).permit(:name, :category, :connecting_link , :list_products, :buy_product)
     end
 end

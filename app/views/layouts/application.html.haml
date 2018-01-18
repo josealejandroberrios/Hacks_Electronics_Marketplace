@@ -9,4 +9,19 @@
     %link{:crossorigin => "anonymous", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css", :integrity => "sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy", :rel => "stylesheet"}/
     
     %body
+    %p.notice= notice
+    %p.alert= alert
+    %body
+    %header
+      %nav.be-red.white.large-padding
+        %ul.no-list.row.center-xs.middle-xs
+          %li.col-md
+            %h1#logo.no-margin HACKS-ELECTRONICS
+          - if admin_signed_in?
+            %li.col-md
+              = link_to "Cerrar Sesion", destroy_admin_session_path, method: :delete
+          - else
+            %li.col-md
+              = link_to "Iniciar Sesion", new_admin_session_path
+
     = yield

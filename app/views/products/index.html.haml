@@ -1,2 +1,25 @@
 %main
-  =@products
+  -@products.each do |product|
+    %form{ action: "http://192.168.1.12:3000/api/v1/products/#{product['id']}", display: "none", method: "post", target: 'fremename'}
+      %input{ type: "submit", value: "Comprar" }
+      %input{ type: "text", name: "quantity", value: "1", hidden: "true" } 
+      %input{ name: "_method", value: "PUT", hidden: "true" }                 
+      Id:
+      =product['id']
+      %br   
+      Name:
+      =product['name']
+      %br    
+      Image:
+      =product['image']
+      %br
+      Description:
+      =product['description']
+      %br
+      Price:
+      =product['price']
+      %br
+      Quantity:
+      =product['quantity']
+      %br
+      %br
