@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+ img{
+    width: 100px;
+    height: 100px;
+}
+
+.table thead .sticky th{
+    position: -webkit-sticky;
+    position: sticky;
+    top: -3px;
+    background: #FFF;
+    border-bottom: inherit !important;
+}
+.sticky{
+    border-color: inherit !important;
+}
+
+.font-size{
+    font-size: 0.8em;
+    text-align: justify;
+}

@@ -4,7 +4,6 @@ class Admin::ProductsController < ApplicationController
 
   def index 
     @products = Product.all
-    render json: @products
   end
 
   def new
@@ -14,19 +13,18 @@ class Admin::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to products_path
+      redirect_to admin_products_path
     else
       render :new
     end
   end
 
   def edit
-
   end
 
   def update
     if @product.update(product_params)
-      redirect_to products_path
+      redirect_to admin_products_path
     else
       render :edit
     end
@@ -34,7 +32,7 @@ class Admin::ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to products_path
+    redirect_to admin_products_path
   end
 
   private

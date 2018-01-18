@@ -1,0 +1,26 @@
+%br/
+= link_to('Nueva Tienda', new_admin_store_path)
+%br/
+%br/
+- if @stores.empty?
+  %h4 No Existen tiendas Resgistradas!!!
+- else
+  %table.table.table-striped
+    %thead
+      %tr.sticky
+        %th Nombre
+        %th Category
+        %th Link de Coneccion
+        %th Link Listar Productos
+        %th Link Comprar Productos
+        %th Editar
+        %th Eliminar
+    %tbody
+      - @stores.each do |store|
+        %tr
+          %td= store.name
+          %td= store.connecting_link
+          %td= store.list_products
+          %td= store.buy_product
+          %td= link_to 'Editar', edit_admin_store_path(store)
+          %td= link_to 'Eliminar', admin_store_path(store), method: :delete, data: { confirm: "Are you sure?" }

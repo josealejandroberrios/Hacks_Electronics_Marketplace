@@ -37,6 +37,9 @@ gem 'haml-rails'
 gem 'annotate'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'rack-cors'
+gem 'paperclip', '~> 4.3', '>= 4.3.6'
+gem 'devise'
+gem 'rest-client'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

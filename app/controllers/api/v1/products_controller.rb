@@ -6,28 +6,20 @@ class Api::V1::ProductsController < ApplicationController
     render json: @products
   end
 
-  def new
-   
+  def show
+    @product = Product.find_by(id: params[:id])
+    render json: @product
   end
 
-  def create
-  
-  end
-
-  def edit
-
-  end
-
-  def create
+  def update
+    @product = Product.find_by(id: params[:id])
+    #@product.update(quantity: @product.quantity + 20)
+    if @product.quantity > 0
+      @product.update(quantity: @product.quantity - 1)
+      render json: @product
+    else
+      render json: @product.quantity
     
-  end
-
-  def destroy
-    
-  end
-
-  private
-    def product_params
-      params.require(:product).permit(:name, :image, :description, :price, :quantity)
     end
+  end
 end

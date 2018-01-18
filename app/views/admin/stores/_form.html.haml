@@ -1,0 +1,17 @@
+= form_with(model: [@admin, @store], local: true) do |form|
+    .field
+        = form.label :Nombre
+        = form.text_field :name
+    .field
+        = form.label :Categoria
+        = form.text_field :category
+    .field
+        = form.label :Link_de_Coneccion
+        = form.text_area :connecting_link
+    .field
+        = form.label :Link_Listar_Productos
+        = form.text_field :list_products
+    .field
+        = form.label :Link_Comprar_Productos
+        = form.text_area :buy_product
+    = form.submit
