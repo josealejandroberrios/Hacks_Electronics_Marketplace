@@ -1,10 +1,19 @@
-%table.table.table-striped
-  %thead
-    %tr
-      %th Nombre
-      %th Imagen
-      %th Descripcion
-      %th Precio
-      %th Stock
-      %th Editar
-      %th Eliminar
+%header
+  %nav.be-red.white.large-padding
+    %ul.no-list.row.middle-xs
+      %li.col-md
+        %h1#logo.no-margin.col-md HACKS ELECTRONICS
+      - if admin_signed_in?
+        %li.col-md.center-xs
+          = link_to "Productos", admin_products_path
+        %li.col-md.center-xs
+          = link_to "Tiendas", admin_stores_path
+        %li.col-md.center-xs
+          = link_to "Cerrar Sesion", destroy_admin_session_path, method: :delete
+      - else
+        %li.col-md.center-xs
+          = link_to "Contacto", "#"
+        %li.col-md.center-xs
+          = link_to "Nuestra API", "http://localhost:3000/api/v1/products.json", target: "_blank"
+        %li.col-md.center-xs
+          = link_to "Iniciar Sesion", new_admin_session_path

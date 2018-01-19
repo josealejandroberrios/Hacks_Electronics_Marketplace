@@ -17,16 +17,47 @@
 #
 
 class Product < ApplicationRecord
-  attr_accessor :store, :category
   has_many :sales_order
   has_attached_file :image, styles: { small: "64x64", med: "300x300", large: "522x620" }
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/  
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/ 
 
-  def self.get_info   ### metodo para parsear 
+  def self.get_info
     items = []
-    inf = JSON.parse RestClient.get("http://192.168.1.8:3000/api/v1/products") ### cambiar liks
-    inf.each { |item|
-      items << item
-    }
+    stores = Store.all
+    stores.each { |store|
+      if (RestClient.get("#{store.connecting_link}#{store.list_products}")).code >= 200 && (RestClient.get("#{store.connecting_link}#{store.list_products}")).code < 300 
+        inf = JSON.parse RestClient.get("#{store.connecting_link}#{store.list_products}") ### cambiar liks
+        inf.each { |item|
+          items << item
+        }
+      else
+      end
+    } 
+    return items  
   end
+
+  def modify_image(hash)
+    hash.map do |product|
+      {
+      :store => "HACKS-ELECTRONICS.CA",
+      :category => "Electronicos",
+      :id => product.id,
+      :name => product.name, 
+      :image => "http://192.168.1.13:3000#{product.image}",
+      :description => product.description,
+      :price => product.price,
+      :quantity => product.quantity,
+      :path => "http://192.168.1.13:3000/api/v1/products/"
+      }     #product.image = "#{Store.find_by(name: "HACKS-ELECTRONICS.CA").connecting_link}#{product.image}"
+    end  
+  end
+
+  ###### Para pruebas 
+  # def self.get_info   ### metodo para parsear 
+  #   items = []
+  #   inf = JSON.parse RestClient.get("http://192.168.34.128:3000/api/v1/stores/1/products") ### cambiar liks
+  #   inf.each { |item|
+  #     items << item
+  #   }
+  # end
 end

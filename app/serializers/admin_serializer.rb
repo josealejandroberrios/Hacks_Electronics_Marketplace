@@ -23,5 +23,5 @@
 #
 
 class AdminSerializer < ActiveModel::Serializer
-  attributes :nick_name, :password
+  attributes :nick_name
 end

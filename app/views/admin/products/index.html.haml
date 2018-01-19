@@ -1,7 +1,6 @@
-%br/
-= link_to('Nuevo Producto', new_admin_product_path)
-%br/
-%br/
+%button.btn.be-red.white= link_to('Agregar Producto', new_admin_product_path)
+%br
+%br
 - if @products.empty?
   %h4 No Existen Productos en Stock!!!
 - else
@@ -24,5 +23,7 @@
           %td.font-size= product.description
           %td= number_to_currency(product.price)
           %td= product.quantity
-          %td= link_to 'Editar', edit_admin_product_path(product)
-          %td= link_to 'Eliminar', admin_product_path(product), method: :delete, data: { confirm: "Are you sure?" }
+          %td
+            %buton.btn.be-red.white= link_to 'Editar', edit_admin_product_path(product)
+          %td
+            %button.btn.be-red.white= link_to 'Eliminar', admin_product_path(product), method: :delete, data: { confirm: "Are you sure?" }

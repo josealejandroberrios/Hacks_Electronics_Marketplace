@@ -17,7 +17,6 @@
 #
 
 class ProductSerializer < ActiveModel::Serializer
-  attribute :store
   attributes :id, :name, :image, :description, :price, :quantity
-  attribute :category
+  
 end

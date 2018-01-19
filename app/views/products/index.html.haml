@@ -1,25 +1,28 @@
-%main
-  -@products.each do |product|
-    %form{ action: "http://192.168.1.12:3000/api/v1/products/#{product['id']}", display: "none", method: "post", target: 'fremename'}
-      %input{ type: "submit", value: "Comprar" }
-      %input{ type: "text", name: "quantity", value: "1", hidden: "true" } 
-      %input{ name: "_method", value: "PUT", hidden: "true" }                 
-      Id:
-      =product['id']
-      %br   
-      Name:
-      =product['name']
-      %br    
-      Image:
-      =product['image']
-      %br
-      Description:
-      =product['description']
-      %br
-      Price:
-      =product['price']
-      %br
-      Quantity:
-      =product['quantity']
-      %br
-      %br
+%table.table.table-striped
+  %thead
+    %tr.sticky
+      %th Nombre
+      %th Imagen
+      %th Descripcion
+      %th Precio
+      %th Disponibilidad
+      %th Compra
+  %tbody
+    - @products.each do |product|
+      %tr
+        %td= product["name"]
+        %td 
+          %img(src= "#{product["image"]}")
+        %td.font-size= product["description"]
+        %td= number_to_currency(product["price"])
+        %td= product["quantity"]
+        %td 
+          %form{ action: "#{product['path']}#{product['id']}", display: "none", method: "post", target: 'fremename'}
+            %input{ type: "number", name: "quantity", placeholder: "Cantidad", min: "1", max: "#{product["quantity"]}"}
+            %br
+            %br
+            %input.btn.be-red.white{ type: "submit", value: "Comprar" }
+            %input{ name: "_method", value: "PUT", hidden: "true" }
+           
+                           
+      
