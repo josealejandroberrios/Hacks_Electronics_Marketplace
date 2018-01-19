@@ -18,7 +18,7 @@ class Api::V1::ProductsController < ApplicationController
       @product.update(quantity: @product.quantity - params[:quantity].to_i)
       render json: @product
     else
-      render flash[:notice] = "You have successfully logged out." #### poner una respuesta, no esta dadno alguna
+       #### poner una respuesta, no esta dadno alguna
     end
   end
 end

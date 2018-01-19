@@ -25,8 +25,8 @@ class Product < ApplicationRecord
     items = []
     stores = Store.all
     stores.each { |store|
-      if (RestClient.get("#{store.connecting_link}#{store.list_products}")).code >= 200 && (RestClient.get("#{store.connecting_link}#{store.list_products}")).code < 300 
-        inf = JSON.parse RestClient.get("#{store.connecting_link}#{store.list_products}") ### cambiar liks
+      if ((RestClient.get("#{store.connecting_link}#{store.list_products}")).code >= 200 && (RestClient.get("#{store.connecting_link}#{store.list_products}")).code < 300) && store.buy_product == "Activo"
+        inf = JSON.parse RestClient.get("#{store.connecting_link}#{store.list_products}") 
         inf.each { |item|
           items << item
         }
@@ -43,11 +43,11 @@ class Product < ApplicationRecord
       :category => "Electronicos",
       :id => product.id,
       :name => product.name, 
-      :image => "http://192.168.1.13:3000#{product.image}",
+      :image => "http://192.168.34.129:3000#{product.image}",
       :description => product.description,
       :price => product.price,
       :quantity => product.quantity,
-      :path => "http://192.168.1.13:3000/api/v1/products/"
+      :path => "http://192.168.34.129:3000/api/v1/products/"
       }     #product.image = "#{Store.find_by(name: "HACKS-ELECTRONICS.CA").connecting_link}#{product.image}"
     end  
   end

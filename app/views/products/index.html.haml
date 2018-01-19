@@ -11,14 +11,19 @@
     - @products.each do |product|
       %tr
         %td= product["name"]
-        %td 
-          %img(src= "#{product["image"]}")
+        %td                    
+          %img(src="http://192.168.34.19:3000#{product["image"]}")
+        -#%img(src= "#{(Store.all.find_by(name: product['store'])).connecting_link}#{product["image"]}")
         %td.font-size= product["description"]
-        %td= number_to_currency(product["price"])
-        %td= product["quantity"]
+        %td.currency.text-center= number_to_currency(product["price"])
+        %td.currency.text-center= product["quantity"]
         %td 
-          %form{ action: "#{product['path']}#{product['id']}", display: "none", method: "post", target: 'fremename'}
+          %form{ action: "/products/#{product['id']}", display: "none", method: "post"}
+            -#= puts "PATH ES #{product["path"]}"
+
             %input{ type: "number", name: "quantity", placeholder: "Cantidad", min: "1", max: "#{product["quantity"]}"}
+            %input{ name: "path", value: "#{product["path"]}", hidden:'true'}
+            -#(Store.all.find_by(name: product['store']).connecting_link}" 
             %br
             %br
             %input.btn.be-red.white{ type: "submit", value: "Comprar" }

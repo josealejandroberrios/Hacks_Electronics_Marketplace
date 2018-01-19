@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :stores, except: [:show]
   end
 
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show, :update]
 
   root to: "products#index"
   

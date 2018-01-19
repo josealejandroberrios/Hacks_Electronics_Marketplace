@@ -2,18 +2,20 @@
   %nav.be-red.white.large-padding
     %ul.no-list.row.middle-xs
       %li.col-md
-        %h1#logo.no-margin.col-md HACKS ELECTRONICS
+        %img.logo.no-margin.col-md.set-up{:alt => "", :src => "https://platform.devtohack.com/assets/hack_word_big-d3cb3536baa51c2492378eae680d90870e0cdf7c12426c64964d0ac7e9d2a6b3.png"}/
       - if admin_signed_in?
-        %li.col-md.center-xs
-          = link_to "Productos", admin_products_path
-        %li.col-md.center-xs
+        %li.col-md.center-xs.aumen.cardef{:style => "font-family: 'Indie Flower', cursive; font-size: 3em;"}
+          = link_to "Admin Productos", admin_products_path
+        %li.col-md.center-xs.aumen.cardef{:style => "font-family: 'Indie Flower', cursive; font-size: 3em;"}
+          = link_to "Productos", products_path  
+        %li.col-md.center-xs.aumen.cardef{:style => "font-family: 'Indie Flower', cursive; font-size: 3em;"}
           = link_to "Tiendas", admin_stores_path
-        %li.col-md.center-xs
+        %li.col-md.center-xs.aumen.cardef{:style => "font-family: 'Indie Flower', cursive; font-size: 3em;"}
           = link_to "Cerrar Sesion", destroy_admin_session_path, method: :delete
       - else
-        %li.col-md.center-xs
+        %li.col-md.center-xs.aumen.cardfe{:style => "font-family: 'Indie Flower', cursive; font-size: 3em;"}
           = link_to "Contacto", "#"
-        %li.col-md.center-xs
-          = link_to "Nuestra API", "http://localhost:3000/api/v1/products.json", target: "_blank"
-        %li.col-md.center-xs
+        %li.col-md.center-xs.aumen.cardef{:style => "font-family: 'Indie Flower', cursive; font-size: 3em;"}
+          = link_to "Nuestra API", "http://192.168.34.129:3000/api/v1/products", target: "_blank"
+        %li.col-md.center-xs.aumen.cardef{:style => "font-family: 'Indie Flower', cursive; font-size: 3em;"}
           = link_to "Iniciar Sesion", new_admin_session_path

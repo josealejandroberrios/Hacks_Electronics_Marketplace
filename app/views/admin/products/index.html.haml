@@ -21,9 +21,9 @@
           %td 
             %img(src="#{product.image}")
           %td.font-size= product.description
-          %td= number_to_currency(product.price)
-          %td= product.quantity
+          %td.currency.text-center= number_to_currency(product.price)
+          %td.currency.text-center= product.quantity
           %td
-            %buton.btn.be-red.white= link_to 'Editar', edit_admin_product_path(product)
+            %buton.btn.be-red.white.but= link_to 'Editar', edit_admin_product_path(product)
           %td
-            %button.btn.be-red.white= link_to 'Eliminar', admin_product_path(product), method: :delete, data: { confirm: "Are you sure?" }
+            %button.btn.be-red.white.but= link_to 'Eliminar', admin_product_path(product), method: :delete, data: { confirm: "Are you sure?" }

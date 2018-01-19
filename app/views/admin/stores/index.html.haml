@@ -23,6 +23,6 @@
           %td= store.list_products
           %td= store.buy_product
           %td
-            %button.btn.be-red.white= link_to 'Editar', edit_admin_store_path(store)
+            %button.btn.be-red.white.log= link_to 'Editar', edit_admin_store_path(store)
           %td
-            %button.btn.be-red.white= link_to 'Eliminar', admin_store_path(store), method: :delete, data: { confirm: "Are you sure?" }
+            %button.btn.be-red.white.log= link_to 'Eliminar', admin_store_path(store), method: :delete, data: { confirm: "Are you sure?" }

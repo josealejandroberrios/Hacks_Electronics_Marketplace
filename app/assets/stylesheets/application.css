@@ -13,30 +13,43 @@
  *= require_tree .
  *= require_self
  */
- img{
+img .set-up{
     width: 100px;
     height: 100px;
+}
+
+img{
+	width: 100px;
+    height: 100px;
+}
+
+.aumen{
+	font-size: 5em;
+	font-family: 'Indie Flower', cursive;
+	
 }
 
 .table thead .sticky th{
     position: -webkit-sticky;
     position: sticky;
-    top: -3px;
+	top: -3px;
+	z-index: 999;
     background: #FFF;
-    border-bottom: inherit !important;
+    border-bottom: inherit !important
 }
 .sticky{
 	border-color: inherit !important;
 	text-align: center;
 	
+	
 }
 tbody{
-	text-align: center;
-	
+	text-align: middle;
 }
 
 .table td, .table th{
-	vertical-align: ;
+	vertical-align: middle !important;
+
 }
 
 .font-size{
@@ -46,13 +59,14 @@ tbody{
 
 html,body{
 	margin: 0px;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Indie Flower', cursive;
 }
 
 a, a:visited{
 	color: inherit;
 	text-decoration: none;
 }
+
 
 .btn{
 	background-color: inherit;
@@ -62,6 +76,18 @@ a, a:visited{
 	cursor: pointer;
 	font-size: 1em;
 	padding: 10px 12px;
+}
+
+a{
+	width: 100px;
+	height: 100px;
+}
+
+form_with{
+	display: inline
+}
+.cardef{
+	line-height: 1;
 }
 
 .red{
@@ -82,11 +108,11 @@ a, a:visited{
 
 
 .be-red{
-	background-color: #1c8dd27a;
+	background-color: #111;
 }
 
 .white{
-	color: #ECF0F1;
+	color: #fff;
 	
 }
 
@@ -99,7 +125,7 @@ a, a:visited{
 }
 
 .text-left{
-	text-align: left;
+	text-align: left !important;
 }
 
 .form-control{
@@ -130,4 +156,194 @@ a, a:visited{
 	top: -62px;
 }
 
+nav ul {
+
+	margin-top: 14px !important;
+	margin-bottom: 14px !important;
+
 }
+
+nav ul li img {
+	height: 65px;
+}
+
+.but{
+	position: relative;
+	top: 0px;
+}
+
+.anchur{
+	width: 100px;
+	text-align: center;
+}
+
+tr{
+	text-align: left;
+}
+
+.currency{
+	font-size: 1.7em;
+}
+
+.text-center{
+	text-align: center;
+}
+.log{
+	position: relative;
+	right: -30px;
+}
+
+
+
+html {
+	position: relative;
+	min-height: 100%;
+  }
+  
+  body {
+	margin-bottom: 150px;
+  }
+  
+  .footer {
+	position: absolute;
+	bottom: -180px;
+	width: 100%;
+	height: 150px;
+	background-color: #111;
+	text-align: center;
+  }
+  
+  .container{
+	margin-top: 50px;
+	color: #fff;
+	width: 100%;
+  }
+  
+  .fa-twitter {
+	  color: #4099FF;
+  }
+  
+  .fa-facebook {
+	  color: #3B5998;
+  }
+  
+  .fa-youtube-play {
+	  color: #e52d27;
+  }
+  
+  .fa-rss {
+	  color: #FF6600;
+  }
+  
+  .fa-vine {
+	  color: #00a478;
+  }
+  
+  .fa-flickr {
+	  color: #ff0084;
+  }
+  
+  .fa-twitch {
+	  color: #6441A5;
+  }
+  
+  .fa-linkedin {
+	  color: #007bb6;
+  }
+  
+  .fa {
+	  opacity: 0.7;
+	  transition: 1s;
+	  -webkit-transition: 1s;
+  }
+  
+  .fa:hover{
+	  opacity: 1;
+	  transition: 1s;
+	  -webkit-transition: 1s;
+  }
+
+  body {
+	background-color: #fff;
+	color: #333;
+	margin: 33px;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 13px;
+	line-height: 18px;
+  }
+  
+  p, ol, ul, td {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 13px;
+	line-height: 18px;
+  }
+  
+  pre {
+	background-color: #eee;
+	padding: 10px;
+	font-size: 11px;
+  }
+  
+  a {
+	color: #000;
+  
+	&:visited {
+	  color: #666;
+	}
+  
+	&:hover {
+	  color: #fff;
+	  background-color: #000;
+	}
+  }
+  
+  th {
+	padding-bottom: 5px;
+  }
+  
+  td {
+	padding: 0 5px 7px;
+  }
+  
+  div {
+	&.field, &.actions {
+	  margin-bottom: 10px;
+	}
+  }
+  
+  #notice {
+	color: green;
+  }
+  
+  .field_with_errors {
+	padding: 2px;
+	background-color: red;
+	display: table;
+  }
+  
+  #error_explanation {
+	width: 450px;
+	border: 2px solid red;
+	padding: 7px 7px 0;
+	margin-bottom: 20px;
+	background-color: #f0f0f0;
+  
+	h2 {
+	  text-align: left;
+	  font-weight: bold;
+	  padding: 5px 5px 5px 15px;
+	  font-size: 12px;
+	  margin: -7px -7px 0;
+	  background-color: #c00;
+	  color: #fff;
+	}
+  
+	ul li {
+	  font-size: 12px;
+	  list-style: square;
+	}
+  }
+  
+  label {
+	display: block;
+  }
