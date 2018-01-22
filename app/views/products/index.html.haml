@@ -12,7 +12,7 @@
       %tr
         %td= product["name"]
         %td                    
-          %img(src="http://192.168.34.19:3000#{product["image"]}")
+          %img(src="#{product["image"]}")
         -#%img(src= "#{(Store.all.find_by(name: product['store'])).connecting_link}#{product["image"]}")
         %td.font-size= product["description"]
         %td.currency.text-center= number_to_currency(product["price"])
